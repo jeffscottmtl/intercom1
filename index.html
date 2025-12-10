@@ -14,7 +14,7 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Full‑screen background */
+    /* Desktop default background */
     body {
       background: url('background.png') no-repeat center center fixed;
       background-size: cover;
@@ -22,6 +22,14 @@
       align-items: center;
       justify-content: center;
       color: #ffffff;
+    }
+
+    /* Mobile background override */
+    @media only screen and (max-width: 768px) {
+      body {
+        background: url('background-mobile.png') no-repeat center center scroll;
+        background-size: cover;
+      }
     }
 
     /* Content box */
@@ -46,14 +54,6 @@
 </head>
 
 <body>
-  <div class="container">
-    <h1>CN Public Inquiry – Intercom Test</h1>
-    <p>
-      This test page hosts the Intercom Messenger widget.  
-      Use this page to preview routing flows, automated responses,  
-      and the look-and-feel of the chatbot before going live on CN.ca.
-    </p>
-  </div>
 
 <script>
   window.intercomSettings = {
@@ -62,10 +62,36 @@
   };
 </script>
 
-
 <script>
-  // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/yuda4uvs'
-  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/yuda4uvs';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
+  (function(){
+    var w = window;
+    var ic = w.Intercom;
+    if (typeof ic === "function") {
+      ic("reattach_activator");
+      ic("update", w.intercomSettings);
+    } else {
+      var d = document;
+      var i = function(){ i.c(arguments); };
+      i.q = [];
+      i.c = function(args){ i.q.push(args); };
+      w.Intercom = i;
+      var l = function(){
+        var s = d.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://widget.intercom.io/widget/yuda4uvs";
+        var x = d.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+      };
+      if (d.readyState === "complete") {
+        l();
+      } else if (w.attachEvent) {
+        w.attachEvent("onload", l);
+      } else {
+        w.addEventListener("load", l, false);
+      }
+    }
+  })();
 </script>
 
 </body>
